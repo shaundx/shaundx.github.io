@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install VS Code in Kali Linux</title>
+    <style>
+        body {
+            background: #000;
+            color: #00ff41;
+            font-family: 'Consolas', 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        a {
+            color: #39ff14;
+            text-decoration: underline;
+        }
+
+        header,
+        section,
+        footer {
+            border: 1px solid #00ff41;
+            margin: 30px auto;
+            max-width: 900px;
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 10px;
+            box-shadow: 0 0 10px #00ff41a0;
+            padding: 24px 32px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #00ff41;
+            text-shadow: 0 0 8px #00ff41cc, 0 0 2px #fff;
+        }
+
+        nav {
+            margin: 16px 0 32px 0;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 18px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1.5px solid #00ff41;
+            margin: 32px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #00ff41;
+            padding: 10px 14px;
+            text-align: left;
+        }
+
+        th {
+            background: rgba(0, 255, 65, 0.12);
+        }
+
+        img {
+            border: 2px solid #00ff41;
+            border-radius: 6px;
+            margin: 12px 0;
+            max-width: 100%;
+            display: block;
+        }
+
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.18;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="content">
+        <div style="text-align:center; margin-top:18px; margin-bottom:0;">
+            <a href="sand.html"
+                style="color:#39ff14; font-weight:bold; font-size:1.15em; border:1px solid #00ff41; border-radius:6px; padding:8px 18px; background:rgba(0,0,0,0.7); text-shadow:0 0 8px #00ff41cc; display:inline-block;">Back
+                to VirtualBox & Kali Guide</a>
+        </div>
+
+        <header>
+            <h1>Installing Visual Studio Code in Kali Linux</h1>
+            <p>This guide will help you install <b>VS Code</b> in Kali Linux step by step. Use the links below to jump
+                to any section.</p>
+            <nav>
+                <a href="#requirements">System Requirements</a>
+                <a href="#install">Installing VS Code</a>
+                <a href="#extensions">Recommended Extensions</a>
+                <a href="#troubleshooting">Troubleshooting</a>
+            </nav>
+        </header>
+        <section id="requirements">
+            <h2>System Requirements</h2>
+            <table>
+                <tr>
+                    <th>Component</th>
+                    <th>Minimum</th>
+                    <th>Recommended</th>
+                </tr>
+                <tr>
+                    <td>CPU</td>
+                    <td>Dual-core 2.0 GHz</td>
+                    <td>Quad-core 2.5 GHz+</td>
+                </tr>
+                <tr>
+                    <td>RAM</td>
+                    <td>2 GB</td>
+                    <td>4 GB or more</td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td>2 GB free</td>
+                    <td>10 GB+ SSD</td>
+                </tr>
+                <tr>
+                    <td>OS</td>
+                    <td>Kali Linux (2022+)</td>
+                    <td>Latest Kali Linux</td>
+                </tr>
+                <tr>
+                    <td>Internet</td>
+                    <td>Required for downloads</td>
+                    <td>Broadband</td>
+                </tr>
+            </table>
+        </section>
+        <hr>
+        <section id="install">
+            <img src="https://code.visualstudio.com/assets/images/code-stable.png" alt="VS Code Logo">
+            <h2>Installing VS Code</h2>
+            <ol>
+                <li>Open your web browser in kali by clicking the 'kali' icon or the 'Start' button on your device</li>
+                <img src="\kaliweb.png" alt="Kali's Browser"
+                    style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+
+                <li>Open a New Tab (+) and search for "VSC" or "Visual Studio Code"<br>
+                    <img src="\vsonweb.png" alt="VSC on web"
+                        style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+                </li>
+                <li>Click the first link, which is from Microsoft's official page<br>
+                </li>
+                <img src="\vslink.png" alt="VSC's link"
+                    style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+                <li>Download the first file (.deb) file. For <b>kali linux</b>, download <code>.deb</code> files.<br>
+                    <img src="\debshit.png" alt=".deb"
+                        style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+                </li>
+                <li>Click the file from your browser after it has been downloaded.<br>
+                    <img src="\down.png" alt="Downloader"
+                        style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+
+                </li>
+                <li>After it opens, run the following in your <b>kali linux</b> terminal:<br>
+                    <code>cd <b>Downloads/</b></code><br>
+                    <p> </p>
+                    <code>ls</code>
+                    <img src="\kaliter1.png"
+                        alt="Kali Linux terminal window open in the Downloads directory showing command prompt and file list. The terminal background is black with green text. The environment is a typical Linux desktop. The mood is instructional and focused. Visible text includes cd Downloads and ls."
+                        style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+                </li>
+                <li>Copy the red <b>link</b> and paste it as so:<br>
+                    <code>sudo dpkg -i <b>link</b></code>
+                    <img src="\kaliter2.png" alt="terminal 2"
+                        style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+                </li>
+                <li>Wait until all packages and downloads have been installed</li>
+                <li>When asked for a confirmation, click <b>Enter</b> to select <b>yes</b></li>
+                <img src="\vsconfirmations.png" alt="conf"
+                    style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+                <li>Once installed, you can launch VS Code from the applications menu or by typing <code>code</code> in
+                    the terminal like so:
+                    <img src="\kaliter3.png" alt="terminal 3"
+                        style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+                </li>
+                <li>VS Code should now open. You can pin it to your taskbar for easy access.</li>
+                <img src="\vscinkali.png" alt="vsinkali"
+                    style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+            </ol>
+
+        </section>
+        <hr>
+        <section id="extensions">
+            <h2>Recommended Extensions</h2>
+            <ul>
+                <li>Python</li>
+                <li>Live Server</li>
+                <li>Prettier - Code formatter</li>
+                <li>GitLens</li>
+                <li>Remote - SSH</li>
+            </ul>
+        </section>
+        <hr>
+        <section id="troubleshooting">
+            <h2>Troubleshooting & Tips</h2>
+            <ul>
+                <li>If you get <b>GPG errors</b>, re-download the key and check permissions.</li>
+                <li>If VS Code doesn't launch, try running <code>code --verbose</code> for more info.</li>
+                <li>For extension issues, check the <a href="https://marketplace.visualstudio.com/VSCode">VS Code
+                        Marketplace</a>.</li>
+            </ul>
+        </section>
+        <footer>
+            <p>For more help, visit the <a href="https://code.visualstudio.com/docs" target="_blank">VS Code
+                    Documentation</a> or the <a href="https://www.kali.org/docs/" target="_blank">Kali Linux
+                    Documentation</a>.</p>
+        </footer>
+    </div>
+    <script>
+        // Matrix digital rain effect
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+        const fontSize = 18;
+        const columns = Math.floor(width / fontSize);
+        const drops = Array(columns).fill(1);
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0,0,0,0.13)';
+            ctx.fillRect(0, 0, width, height);
+            ctx.font = fontSize + "px Consolas, monospace";
+            ctx.fillStyle = '#00ff41';
+            for (let i = 0; i < drops.length; i++) {
+                const text = String.fromCharCode(0x30A0 + Math.random() * 96);
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 44);
+        window.addEventListener('resize', () => {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        });
+    </script>
+</body>
+
+</html>
