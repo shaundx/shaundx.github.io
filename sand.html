@@ -45,23 +45,31 @@
             margin-top: 0;
         }
         nav {
+            display: flex;
+            flex-direction: row;
+            gap: 32px;
+            justify-content: center;
             margin: 18px 0 32px 0;
             text-align: center;
         }
         nav a {
-            margin: 0 16px;
+            margin: 0;
             font-weight: 500;
             font-size: 1.08em;
-            padding: 6px 14px;
-            border-radius: 4px;
+            padding: 12px 24px;
+            border-radius: 6px;
             background: #f6f6f6;
             border: 1px solid #eaeaea;
             box-shadow: 0 1px 4px #0001;
             text-decoration: none;
+            color: #0055aa;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
         }
         nav a:hover {
             background: #eaeaea;
             color: #d43f3a;
+            box-shadow: 0 0 8px #d43f3a33;
+            transform: translateY(-2px) scale(1.04);
         }
         table {
             width: 100%;
