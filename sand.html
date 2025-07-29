@@ -4,168 +4,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Ethical Hacking Course</title>
+    <link rel="icon" href="/favicon.gif" type="image/gif" id="favicon">
+    <title>Install VirtualBox & Kali Linux</title>
     <style>
         body {
-            background: #000;
-            color: #00ff41;
-            font-family: 'Consolas', 'Courier New', monospace;
+            background: #f6f6f6;
+            color: #222;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            position: relative;
         }
 
         a {
-            color: #39ff14;
-            text-decoration: none;
-            font-weight: bold;
-            transition: box-shadow 0.2s, background 0.2s;
+            color: #0055aa;
+            text-decoration: underline;
+            transition: color 0.2s;
         }
 
         a:hover {
-            box-shadow: 0 0 12px #00ff41cc;
-            background: rgba(0, 255, 65, 0.08);
+            color: #d43f3a;
         }
 
         header,
         section,
         footer {
-            border: 1px solid #00ff41;
-            margin: 40px auto;
-            max-width: 700px;
-            background: rgba(0, 0, 0, 0.85);
-            border-radius: 12px;
-            box-shadow: 0 0 18px #00ff41a0;
-            padding: 32px 40px;
+            border: 1px solid #d8d8d8;
+            margin: 32px auto;
+            max-width: 900px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px #0001;
+            padding: 28px 36px;
         }
 
         h1 {
-            color: #00ff41;
-            text-shadow: 0 0 12px #00ff41cc, 0 0 2px #fff;
-            font-size: 2.5em;
+            color: #d43f3a;
+            font-size: 2.2em;
             text-align: center;
+            font-weight: 700;
+            letter-spacing: 1px;
             margin-bottom: 18px;
         }
 
-        h2 {
-            color: #00ff41;
-            text-shadow: 0 0 8px #00ff41cc;
-            font-size: 1.5em;
+        h2,
+        h3 {
+            color: #222;
+            font-weight: 600;
             margin-top: 0;
         }
 
-        .links {
+        nav {
             display: flex;
-            flex-direction: column;
-            gap: 24px;
-            margin-top: 24px;
+            flex-direction: row;
+            gap: 32px;
+            justify-content: center;
+            margin: 18px 0 32px 0;
+            text-align: center;
         }
 
-        .link-card {
-            border: 1.5px solid #00ff41;
-            border-radius: 8px;
-            background: rgba(0, 0, 0, 0.7);
-            box-shadow: 0 0 8px #00ff41a0;
-            padding: 18px 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            transition: box-shadow 0.2s;
+        nav a {
+            margin: 0;
+            font-weight: 500;
+            font-size: 1.08em;
+            padding: 12px 24px;
+            border-radius: 6px;
+            background: #f6f6f6;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 1px 4px #0001;
+            text-decoration: none;
+            color: #0055aa;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
         }
 
-        .link-card:hover {
-            box-shadow: 0 0 18px #00ff41cc;
+        nav a:hover {
+            background: #eaeaea;
+            color: #d43f3a;
+            box-shadow: 0 0 8px #d43f3a33;
+            transform: translateY(-2px) scale(1.04);
         }
 
-        .link-title {
-            font-size: 1.2em;
-            margin-bottom: 6px;
-            color: #39ff14;
-            text-shadow: 0 0 6px #00ff41cc;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0;
+            background: #fafafa;
         }
 
-        .link-desc {
-            font-size: 1em;
-            color: #b6ffb6;
+        th,
+        td {
+            border: 1px solid #d8d8d8;
+            padding: 10px 14px;
+            text-align: left;
         }
 
-        #matrix-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.18;
+        th {
+            background: #eaeaea;
+            color: #d43f3a;
+            font-weight: 600;
+        }
+
+        img {
+            border: 2px solid #d8d8d8;
+            border-radius: 6px;
+            margin: 12px 0;
+            max-width: 100%;
+            display: block;
+            background: #fff;
+            box-shadow: 0 1px 6px #0001;
         }
 
         .content {
             position: relative;
-            z-index: 1;
         }
     </style>
 </head>
 
 <body>
-    <canvas id="matrix-canvas"></canvas>
+    <!-- Matrix effect removed -->
     <div class="content">
         <header>
-            <h1>Welcome to the Ethical Hacking Course</h1>
-            <p style="font-size:1.15em; text-align:center; color:#b6ffb6;">Explore the world of cybersecurity,
-                penetration testing, and ethical hacking. Use the links below to get started with your setup and tools.
-            </p>
+            <h1>Installing VirtualBox & Kali Linux</h1>
+            <p>Welcome! This guide will walk you through installing <b>VirtualBox</b> and <b>Kali Linux</b> step by
+                step. Use the links below to jump to any section.</p>
+            <nav>
+                <a href="#requirements">System Requirements</a>
+                <a href="#virtualbox">Installing VirtualBox</a>
+                <a href="#kali">Installing Kali Linux</a>
+                <a href="#extraction">Extracting & Setup</a>
+                <a href="#troubleshooting">Troubleshooting</a>
+                <a href="instvsc.html"
+                    style="color:#39ff14; font-weight:bold; font-size:1.1em; border:1px solid #00ff41; border-radius:6px; padding:6px 14px; background:rgba(0,0,0,0.7); text-shadow:0 0 8px #00ff41cc; display:inline-block;">Install
+                    VS Code in Kali Linux</a>
+            </nav>
         </header>
-        <section>
-            <h2>Useful Links</h2>
-            <div class="links">
-                <div class="link-card">
-                    <a href="output/sand.html" class="link-title">VirtualBox & Kali Linux Installation Guide</a>
-                    <div class="link-desc">Step-by-step instructions to set up VirtualBox and Kali Linux for your
-                        ethical hacking lab.</div>
-                </div>
-                <div class="link-card">
-                    <a href="instvsc.html" class="link-title">Install VS Code in Kali Linux</a>
-                    <div class="link-desc">Learn how to install Visual Studio Code in Kali Linux for coding, scripting,
-                        and automation.</div>
-                </div>
-            </div>
+        <section id="requirements">
+            <h2>System Requirements</h2>
+            <table>
+                <tr>
+                    <th>Component</th>
+                    <th>Minimum</th>
+                    <th>Recommended</th>
+                </tr>
+                <tr>
+                    <td>CPU</td>
+                    <td>Dual-core 2.0 GHz</td>
+                    <td>Quad-core 2.5 GHz+</td>
+                </tr>
+                <tr>
+                    <td>RAM</td>
+                    <td>4 GB</td>
+                    <td>8 GB or more</td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td>30 GB free</td>
+                    <td>50 GB+ SSD</td>
+                </tr>
+                <tr>
+                    <td>OS</td>
+                    <td>Windows 7/8/10/11, macOS, Linux</td>
+                    <td>Latest OS version</td>
+                </tr>
+                <tr>
+                    <td>Internet</td>
+                    <td>Required for downloads</td>
+                    <td>Broadband</td>
+                </tr>
+            </table>
+            <p><b>Note:</b> Virtualization must be enabled in your BIOS/UEFI.</p>
         </section>
-        <!-- Footer removed as requested -->
+
+        <section id="virtualbox">
+            <img style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;"
+                class="virtualbox-logo" src="https://www.virtualbox.org/graphics/vbox_logo2_gradient.png"
+                alt="VirtualBox Logo">
+            <h2>Installing VirtualBox</h2>
+            <ol>
+                <li>Go to the <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox
+                        Downloads</a> page.</li>
+                <li>Download the installer for your OS (Windows, macOS, or Linux).</li>
+
+
+                <li>Accept default options unless you have specific needs.</li>
+                <li>Once installed, launch VirtualBox to ensure it opens correctly.</li>
+                <img src="/vbox.png" alt="VirtualBox Downloads Page Screenshot"
+                    style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+                <li>Run the installer and follow the on-screen instructions (be sure to run as administrator).</li>
+            </ol>
+
+        </section>
+
+        <section id="kali">
+            <img src="https://www.kali.org/images/kali-logo.svg" alt="Kali Linux Logo">
+            <h2>Installing Kali Linux (for VirtualBox)</h2>
+            <ol>
+                <li>Visit the <a href="https://www.kali.org/get-kali/#kali-virtual-machines" target="_blank">Kali Linux
+                        Virtual Machines</a> page.</li>
+                <li>Download the <b>Kali Linux VirtualBox Image</b> (OVA file).</li>
+                <img src="\klinuxinst.png" alt="Kali Linux Virtual Machines Page Screenshot"
+                    style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+                <li>Open the file.</li>
+                <img src="\dwn.png" alt="Downloads"
+                    style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+                <li>After opening the file, extract the VDI file (red color) to a suitable directory or a drive by right
+                    clicking on it and clicking extract all.</li>
+                <img src="\kalitransfer.png" alt="Kali Linux Transfer"
+                    style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+                <li>Open VirtualBox, go to <b>Add</b>, and select the extracted VDI (<b>.vdi</b>) file from the
+                    directory or the
+                    drive.</li>
+                <img src="\thispc.png" alt="Locations"
+                    style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+
+                <li>Kali Linux should naturally get set up inside VirtualBox</li>
+                <img src="\vbox.png" alt="VirtualBox"
+                    style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+
+
+                <li>Start the imported Kali Linux VM.</li>
+            </ol>
+            <p><b>Note:</b> The default login details are <b>username</b>: <b>kali</b>, <b>password</b>: <b>kali</b></p>
+        </section>
+
+        <section id="extraction">
+            <h2>Extracting & Setting Up</h2>
+            <ol>
+                <li>If your Kali download is in a compressed format (e.g., .zip), extract it using built-in tools or
+                    <b>7-Zip</b> (recommended).
+                </li>
+                <li>Ensure you have at least 30 GB free space before extraction.</li>
+                <li>After extraction, proceed with the VirtualBox 'Add' steps.</li>
+            </ol>
+            <p><b>Suggestion:</b> Consider using a dedicated partition for Kali Linux to avoid space issues. Keep at
+                least a 100 GB.</p>
+        </section>
+
+        <section id="troubleshooting">
+            <h2>Troubleshooting & Tips</h2>
+            <ul>
+                <li><b>Enable Virtualization:</b> If you get errors about virtualization, enable it in your BIOS/UEFI.
+                </li>
+                <li><b>Network Issues:</b> Set network mode to <b>Bridged Adapter</b> or <b>NAT</b> in VM settings.</li>
+                <li><b>Performance:</b> Allocate more RAM/CPU if your system allows.</li>
+                <li><b>Disk Space:</b> Ensure you have enough disk space for the VM and Kali Linux updates.</li>
+            </ul>
+        </section>
+        <footer>
+            <p>For more help, visit the <a href="https://www.virtualbox.org/manual/" target="_blank">VirtualBox
+                    Manual</a> or the <a href="https://www.kali.org/docs/" target="_blank">Kali Linux Documentation</a>.
+            </p>
+
     </div>
-    <script>
-        // Matrix digital rain effect
-        const canvas = document.getElementById('matrix-canvas');
-        const ctx = canvas.getContext('2d');
-        let width = window.innerWidth;
-        let height = window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
-        const fontSize = 18;
-        const columns = Math.floor(width / fontSize);
-        const drops = Array(columns).fill(1);
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0,0,0,0.13)';
-            ctx.fillRect(0, 0, width, height);
-            ctx.font = fontSize + "px Consolas, monospace";
-            ctx.fillStyle = '#00ff41';
-            for (let i = 0; i < drops.length; i++) {
-                const text = String.fromCharCode(0x30A0 + Math.random() * 96);
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-                if (drops[i] * fontSize > height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-        setInterval(drawMatrix, 44);
-        window.addEventListener('resize', () => {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width;
-            canvas.height = height;
-        });
-    </script>
+    <!-- Matrix effect script removed -->
 </body>
 
 </html>
