@@ -7,52 +7,84 @@
     <title>Install VS Code in Kali Linux</title>
     <style>
         body {
-            background: #000;
-            color: #00ff41;
-            font-family: 'Consolas', 'Courier New', monospace;
+            background: #f6f6f6;
+            color: #222;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            position: relative;
         }
 
         a {
-            color: #39ff14;
+            color: #0055aa;
             text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #d43f3a;
         }
 
         header,
         section,
         footer {
-            border: 1px solid #00ff41;
-            margin: 30px auto;
+            border: 1px solid #d8d8d8;
+            margin: 32px auto;
             max-width: 900px;
-            background: rgba(0, 0, 0, 0.85);
-            border-radius: 10px;
-            box-shadow: 0 0 10px #00ff41a0;
-            padding: 24px 32px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px #0001;
+            padding: 28px 36px;
         }
 
-        h1,
+        h1 {
+            color: #d43f3a;
+            font-size: 2.2em;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
         h2,
         h3 {
-            color: #00ff41;
-            text-shadow: 0 0 8px #00ff41cc, 0 0 2px #fff;
+            color: #222;
+            font-weight: 600;
+            margin-top: 0;
         }
 
         nav {
-            margin: 16px 0 32px 0;
+            display: flex;
+            flex-direction: row;
+            gap: 32px;
+            justify-content: center;
+            margin: 18px 0 32px 0;
             text-align: center;
         }
 
         nav a {
-            margin: 0 18px;
-            font-weight: bold;
-            font-size: 1.1em;
+            margin: 0;
+            font-weight: 500;
+            font-size: 1.08em;
+            padding: 12px 24px;
+            border-radius: 6px;
+            background: #f6f6f6;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 1px 4px #0001;
+            text-decoration: none;
+            color: #0055aa;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+
+        nav a:hover {
+            background: #eaeaea;
+            color: #d43f3a;
+            box-shadow: 0 0 8px #d43f3a33;
+            transform: translateY(-2px) scale(1.04);
         }
 
         hr {
             border: 0;
-            border-top: 1.5px solid #00ff41;
+            border-top: 1.5px solid #d8d8d8;
             margin: 32px 0;
         }
 
@@ -60,47 +92,40 @@
             width: 100%;
             border-collapse: collapse;
             margin: 18px 0;
+            background: #fafafa;
         }
 
         th,
         td {
-            border: 1px solid #00ff41;
+            border: 1px solid #d8d8d8;
             padding: 10px 14px;
             text-align: left;
         }
 
         th {
-            background: rgba(0, 255, 65, 0.12);
+            background: #eaeaea;
+            color: #d43f3a;
+            font-weight: 600;
         }
 
         img {
-            border: 2px solid #00ff41;
+            border: 2px solid #d8d8d8;
             border-radius: 6px;
             margin: 12px 0;
             max-width: 100%;
             display: block;
-        }
-
-        #matrix-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.18;
+            background: #fff;
+            box-shadow: 0 1px 6px #0001;
         }
 
         .content {
             position: relative;
-            z-index: 1;
         }
     </style>
 </head>
 
 <body>
-    <canvas id="matrix-canvas"></canvas>
+    <!-- Matrix effect removed -->
     <div class="content">
         <div style="text-align:center; margin-top:18px; margin-bottom:0;">
             <a href="sand.html"
@@ -167,10 +192,9 @@
                     <img src="\vsonweb.png" alt="VSC on web"
                         style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
                 </li>
-                <li>Click the first link, which is from Microsoft's official page<br>
-                </li>
-                <img src="\vslink.png" alt="VSC's link"
-                    style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
+                <li>Click the first link, which is from Microsoft's official page<br </li>
+                    <img src="\vslink.png" alt="VSC's link"
+                        style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
                 <li>Download the first file (.deb) file. For <b>kali linux</b>, download <code>.deb</code> files.<br>
                     <img src="\debshit.png" alt=".deb"
                         style="margin:16px auto; display:block; max-width:100%; border:2px solid #00ff41; border-radius:6px; box-sizing:border-box;">
@@ -235,39 +259,7 @@
                     Documentation</a>.</p>
         </footer>
     </div>
-    <script>
-        // Matrix digital rain effect
-        const canvas = document.getElementById('matrix-canvas');
-        const ctx = canvas.getContext('2d');
-        let width = window.innerWidth;
-        let height = window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
-        const fontSize = 18;
-        const columns = Math.floor(width / fontSize);
-        const drops = Array(columns).fill(1);
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0,0,0,0.13)';
-            ctx.fillRect(0, 0, width, height);
-            ctx.font = fontSize + "px Consolas, monospace";
-            ctx.fillStyle = '#00ff41';
-            for (let i = 0; i < drops.length; i++) {
-                const text = String.fromCharCode(0x30A0 + Math.random() * 96);
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-                if (drops[i] * fontSize > height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-        setInterval(drawMatrix, 44);
-        window.addEventListener('resize', () => {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width;
-            canvas.height = height;
-        });
-    </script>
+    <!-- Matrix effect script removed -->
 </body>
 
 </html>
